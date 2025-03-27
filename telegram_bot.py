@@ -78,7 +78,7 @@ def handle_message(update, context):
     update.message.reply_text(f"일정이 등록됐어요:\n[{title}] {start_time.strftime('%Y-%m-%d %H:%M')} ~ {end_time.strftime('%H:%M')}")
 
 # 봇 설정
-updater = Updater("7508822610:AAGMTGWZ4dx7Pw69xf2L_Zm6z0KegFCoLh4", use_context=True)
+updater = Updater("7508822610:AAFEzTqiI1LwhdPehja17XDsgxq1YzxUn6Y", use_context=True)
 dp = updater.dispatcher
 dp.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_message))
 updater.start_polling()

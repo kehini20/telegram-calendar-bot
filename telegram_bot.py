@@ -3,9 +3,14 @@ from googleapiclient.discovery import build
 from google.oauth2.credentials import Credentials
 import re
 from datetime import datetime, timedelta
+import os
+import json
+from google.oauth2.credentials import Credentials
 
 # 구글 인증
-creds = Credentials.from_authorized_user_file('token.json', ['https://www.googleapis.com/auth/calendar'])
+# 환경 변수에서 token.json 내용 불러오기
+token_data = json.loads(os.environ['GOOGLE_TOKEN_JSON'])
+creds = Credentials.from_authorized_user_info(token_data, ['https://www.googleapis.com/auth/calendar'])
 service = build('calendar', 'v3', credentials=creds)
 
 # 날짜/시간/지속시간 + 제목 추출 함수
